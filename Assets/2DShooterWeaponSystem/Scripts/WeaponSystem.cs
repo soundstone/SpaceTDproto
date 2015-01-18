@@ -21,9 +21,9 @@ public class WeaponSystem : MonoBehaviour
 
     [Range(0f, 3f)] public float weaponFireRate;
 
-    [Range(-3f, 3f)] public float weaponXOffset;
+    [Range(-5f, 5f)] public float weaponXOffset;
 
-    [Range(-3f, 3f)] public float weaponYOffset;
+    [Range(-5f, 5f)] public float weaponYOffset;
 
     [Range(0, 100f)] public float ricochetChancePercent;
 
@@ -333,7 +333,7 @@ public class WeaponSystem : MonoBehaviour
             // Setup the point at which bullets need to be placed based on all the parameters
             var initialPosition = gunPoint.position + (gunPoint.transform.forward * (bulletSpacingInitial - i * bulletSpacingIncrement));
             var bulletPosition = new Vector3(initialPosition.x + offsetX + Random.Range(0f, 1f) * bulletRandomness - bulletRandomness / 2,
-                initialPosition.y + offsetY + Random.Range(0f, 1f) * bulletRandomness - bulletRandomness / 2, 0f);
+                initialPosition.y + offsetY + Random.Range(0f, 1f) * bulletRandomness - bulletRandomness / 2, -38f);
 
             bullet.transform.position = bulletPosition;
 
@@ -356,6 +356,7 @@ public class WeaponSystem : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		/*
 	    var facingDirection = Vector2.zero;
 
         // We have three modes - horizontal, vertical and free. Each is a different case based on a dropdown Enum selector on the WeaponSystem script.
@@ -410,9 +411,10 @@ public class WeaponSystem : MonoBehaviour
             // Default the player to face horizontally right if no selection is made
             facingDirection = Vector2.right;
             break;
-        }
 
-        CalculateAimAndFacingAngles(facingDirection);
+        }
+		*/
+        //CalculateAimAndFacingAngles(facingDirection);
         HandleShooting();
 
 	    if (pingPongSpread)

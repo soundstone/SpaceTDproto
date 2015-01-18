@@ -14,13 +14,14 @@ public class Bullet : MonoBehaviour {
     public Vector2 direction = new Vector2(1f, 0f);
     public SpriteRenderer bulletSpriteRenderer;
 
-    public float directionAngle, directionDegrees, newRotationRichochet;
+    public float directionAngle = 4f, directionDegrees, newRotationRichochet;
 
     public Vector3 newDirection;
 
     public float bulletXPosition, bulletYPosition, ricochetChancePercent;
 
     public bool canRichochet, useHitEffects;
+	float age, birthTime;
     
     // Use this for initialization
     void Start()
@@ -33,6 +34,7 @@ public class Bullet : MonoBehaviour {
     {
         // When the bullet is enabled, ensure it faces the correct direction
         transform.eulerAngles = new Vector3(0.0f, 0.0f, directionAngle * Mathf.Rad2Deg);
+		birthTime = Time.time;
     }
 
     public bool GetRicochetChance()
@@ -90,7 +92,7 @@ public class Bullet : MonoBehaviour {
             }
         }
     }
-    
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -108,4 +110,20 @@ public class Bullet : MonoBehaviour {
             if (!bulletSpriteRenderer.isVisible) gameObject.SetActive(false);
         }
     }
+    */
+
+	void FixedUpdate()
+	{
+		Vector3 tempposBlaster = transform.position;
+		age = Time.time - birthTime;
+
+		tempposBlaster = Vector3.forward;
+
+		transform.position = tempposBlaster;
+
+
+			
+			
+
+	}
 }
