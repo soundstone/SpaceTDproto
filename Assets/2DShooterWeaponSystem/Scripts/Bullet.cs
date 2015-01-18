@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour {
     public Vector2 direction = new Vector2(1f, 0f);
     public SpriteRenderer bulletSpriteRenderer;
 
-    public float directionAngle = 4f, directionDegrees, newRotationRichochet;
+    public float directionAngle, directionDegrees, newRotationRichochet;
 
     public Vector3 newDirection;
 
@@ -117,7 +117,7 @@ public class Bullet : MonoBehaviour {
 		Vector3 tempposBlaster = transform.position;
 		age = Time.time - birthTime;
 
-		tempposBlaster = Vector3.forward;
+		tempposBlaster += Vector3.forward;
 
 		transform.position = tempposBlaster;
 
