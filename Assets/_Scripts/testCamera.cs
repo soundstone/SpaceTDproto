@@ -22,7 +22,7 @@ public class testCamera : MonoBehaviour {
 	void LateUpdate () 
 	{
 		Vector3 pos = transform.position;
-		pos = new Vector3(Mathf.Clamp(pos.x, -level_Min_x, level_Max_x), Mathf.Clamp(pos.y, -level_Min_y, level_Min_y), pos.z);
+		pos = new Vector3(Mathf.Clamp(pos.x, -level_Min_x, level_Max_x), Mathf.Clamp(pos.y, -level_Min_y, level_Min_y), -817f);
 		transform.position = pos;
 		//transform.position = new Vector3(Mathf.Clamp(transform.position.x, -level_Min_x, level_Max_x), Mathf.Clamp(transform.position.y, -level_Min_y, level_Max_y), transform.position.z);
 	}
